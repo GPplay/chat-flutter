@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:chat_flutter/widget/custom_input.dart';
+
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
@@ -60,28 +62,8 @@ class __FormState extends State<_Form> {
       padding: EdgeInsets.symmetric(horizontal: 50),
       child: Column(
         children: <Widget>[
-          Container(
-            padding: EdgeInsets.only(top: 5, left: 5, bottom: 5, right: 20),
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                      color: Colors.black.withAlpha(13),
-                      offset: Offset(0, 5),
-                      blurRadius: 5)
-                ]),
-            child: TextField(
-              autocorrect: false,
-              keyboardType: TextInputType.emailAddress,
-              obscureText: false,
-              decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.mail_outline),
-                  focusedBorder: InputBorder.none,
-                  border: InputBorder.none,
-                  hintText: 'Email'),
-            ),
-          )
+          CustomInput(),
+          CustomInput(),
 
           //TODO: Crear el boton
           // ElevatedButton(
