@@ -1,3 +1,5 @@
+import 'package:chat_flutter/widget/labels.dart';
+import 'package:chat_flutter/widget/logo.dart';
 import 'package:flutter/material.dart';
 
 import 'package:chat_flutter/widget/custom_input.dart';
@@ -12,38 +14,14 @@ class LoginPage extends StatelessWidget {
       body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            _Logo(),
+            Logo(),
             _Form(),
-            _Labels(),
+            Labels(),
             Text(
               'Términos y condiciones de uso',
               style: TextStyle(fontWeight: FontWeight.w200),
             )
           ]),
-    );
-  }
-}
-
-class _Logo extends StatelessWidget {
-  const _Logo();
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        width: 170,
-        margin: EdgeInsets.only(top: 50),
-        child: SafeArea(
-          child: Column(
-            children: <Widget>[
-              Image(image: AssetImage('assets/tag-logo.png')),
-              SizedBox(height: 20),
-              Text('Messenger',
-                  style: TextStyle(fontSize: 30, color: Colors.blue[600]))
-            ],
-          ),
-        ),
-      ),
     );
   }
 }
@@ -71,35 +49,21 @@ class __FormState extends State<_Form> {
             keyboardType: TextInputType.emailAddress,
             textController: emailCtrl,
           ),
+          CustomInput(
+            icon: Icons.lock_outline,
+            placeholder: 'Contraseña',
+            textController: passCtrl,
+            isPassword: true,
+          ),
           ElevatedButton(
             onPressed: () {
               debugPrint("Email: ${emailCtrl.text}");
+              debugPrint("Contraseña: ${passCtrl.text}");
             },
             child: Text('Ingresar'),
           )
         ],
       ),
-    );
-  }
-}
-
-class _Labels extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Text('¿No tienes cuenta?',
-            style: TextStyle(
-                color: Colors.black54,
-                fontSize: 15,
-                fontWeight: FontWeight.w300)),
-        SizedBox(height: 10),
-        Text('Crea una ahora!',
-            style: TextStyle(
-                color: Colors.blue[600],
-                fontSize: 18,
-                fontWeight: FontWeight.bold))
-      ],
     );
   }
 }
