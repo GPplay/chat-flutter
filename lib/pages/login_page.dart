@@ -54,6 +54,9 @@ class _Form extends StatefulWidget {
 }
 
 class __FormState extends State<_Form> {
+  final emailCtrl = TextEditingController();
+  final passCtrl = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     // ignore: avoid_unnecessary_containers
@@ -62,14 +65,18 @@ class __FormState extends State<_Form> {
       padding: EdgeInsets.symmetric(horizontal: 50),
       child: Column(
         children: <Widget>[
-          CustomInput(),
-          CustomInput(),
-
-          //TODO: Crear el boton
-          // ElevatedButton(
-          //   onPressed: () {},
-          //   child: Text('Ingresar'),
-          // )
+          CustomInput(
+            icon: Icons.mail_outline,
+            placeholder: 'Correo',
+            keyboardType: TextInputType.emailAddress,
+            textController: emailCtrl,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              debugPrint("Email: ${emailCtrl.text}");
+            },
+            child: Text('Ingresar'),
+          )
         ],
       ),
     );
