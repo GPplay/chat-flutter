@@ -46,6 +46,7 @@ class _Form extends StatefulWidget {
 }
 
 class __FormState extends State<_Form> {
+  final nomCtrl = TextEditingController();
   final emailCtrl = TextEditingController();
   final passCtrl = TextEditingController();
 
@@ -60,8 +61,8 @@ class __FormState extends State<_Form> {
           CustomInput(
             icon: Icons.person_outline,
             placeholder: 'nombre',
-            keyboardType: TextInputType.emailAddress,
-            textController: emailCtrl,
+            keyboardType: TextInputType.text,
+            textController: nomCtrl,
           ),
           CustomInput(
             icon: Icons.mail_outline,
@@ -80,6 +81,7 @@ class __FormState extends State<_Form> {
               onPressed: () {
                 debugPrint(emailCtrl.text);
                 debugPrint(passCtrl.text);
+                debugPrint(nomCtrl.text);
               }),
         ],
       ),
