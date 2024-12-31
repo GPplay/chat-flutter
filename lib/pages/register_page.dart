@@ -58,6 +58,12 @@ class __FormState extends State<_Form> {
       child: Column(
         children: <Widget>[
           CustomInput(
+            icon: Icons.person_outline,
+            placeholder: 'nombre',
+            keyboardType: TextInputType.emailAddress,
+            textController: emailCtrl,
+          ),
+          CustomInput(
             icon: Icons.mail_outline,
             placeholder: 'Correo',
             keyboardType: TextInputType.emailAddress,
