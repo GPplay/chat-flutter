@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Labels extends StatelessWidget {
-  const Labels({super.key});
+  final String ruta;
+
+  const Labels({super.key, required this.ruta});
 
   @override
   Widget build(BuildContext context) {
@@ -13,11 +15,14 @@ class Labels extends StatelessWidget {
                 fontSize: 15,
                 fontWeight: FontWeight.w300)),
         SizedBox(height: 10),
-        Text('Crea una ahora!',
-            style: TextStyle(
-                color: Colors.blue[600],
-                fontSize: 18,
-                fontWeight: FontWeight.bold))
+        GestureDetector(
+          child: Text('Crea una ahora!',
+              style: TextStyle(
+                  color: Colors.blue[600],
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold)),
+          onTap: () => Navigator.pushReplacementNamed(context, ruta),
+        )
       ],
     );
   }

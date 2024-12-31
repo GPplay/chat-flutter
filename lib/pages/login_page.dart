@@ -12,17 +12,28 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffF2F2F2),
-      body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Logo(),
-            _Form(),
-            Labels(),
-            Text(
-              'Términos y condiciones de uso',
-              style: TextStyle(fontWeight: FontWeight.w200),
-            )
-          ]),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          // ignore: sized_box_for_whitespace
+          child: Container(
+            height: MediaQuery.of(context).size.height * 0.9,
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Logo(),
+                  _Form(),
+                  Labels(
+                    ruta: 'register',
+                  ),
+                  Text(
+                    'Términos y condiciones de uso',
+                    style: TextStyle(fontWeight: FontWeight.w200),
+                  )
+                ]),
+          ),
+        ),
+      ),
     );
   }
 }
