@@ -56,10 +56,12 @@ class __FormState extends State<_Form> {
             textController: passCtrl,
             isPassword: true,
           ),
-          BtnAzul(onPressed: () {
-            debugPrint(emailCtrl.text);
-            debugPrint(passCtrl.text);
-          }),
+          BtnAzul(
+              text: 'Ingresar',
+              onPressed: () {
+                debugPrint(emailCtrl.text);
+                debugPrint(passCtrl.text);
+              }),
         ],
       ),
     );

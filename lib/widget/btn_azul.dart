@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class BtnAzul extends StatelessWidget {
   final VoidCallback onPressed;
+  final String text;
 
-  const BtnAzul({super.key, required this.onPressed});
+  const BtnAzul({super.key, required this.onPressed, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class BtnAzul extends StatelessWidget {
         height: 55,
         child: Center(
           child: Text(
-            'Ingresar',
+            text,
             style: TextStyle(color: Colors.white, fontSize: 17),
           ),
         ),
