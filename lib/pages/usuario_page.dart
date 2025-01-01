@@ -61,7 +61,7 @@ class _UsuarioPageState extends State<UsuarioPage> {
       body: SmartRefresher(
           controller: _refreshController,
           enablePullDown: true,
-          onRefresh: _cargarUsuarios(),
+          onRefresh: _cargarUsuarios,
           header: WaterDropHeader(
             complete: Icon(Icons.check, color: Colors.blue[400]),
             waterDropColor: Colors.blue[400]!,
@@ -98,7 +98,7 @@ class _UsuarioPageState extends State<UsuarioPage> {
     );
   }
 
-  _cargarUsuarios() async {
+  void _cargarUsuarios() async {
     // monitor network fetch
     await Future.delayed(Duration(milliseconds: 1000));
     // if failed,use refreshFailed()
