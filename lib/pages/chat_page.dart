@@ -64,8 +64,8 @@ class _ChatPageState extends State<ChatPage> {
           Flexible(
             child: TextField(
               controller: _textController,
-              onSubmitted: (value) => debugPrint(value),
-              onChanged: (String text) {
+              onSubmitted: _handelSumit,
+              onChanged: (String texto) {
                 //TODO: Cuando hay un valor para poder postear
               },
               decoration: InputDecoration.collapsed(hintText: 'Enviar mensaje'),
@@ -95,5 +95,11 @@ class _ChatPageState extends State<ChatPage> {
         ],
       ),
     ));
+  }
+
+  _handelSumit(String text) {
+    debugPrint(text);
+    _textController.clear();
+    _focusNode.requestFocus();
   }
 }
