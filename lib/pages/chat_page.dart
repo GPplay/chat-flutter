@@ -10,6 +10,7 @@ class ChatPage extends StatelessWidget {
         backgroundColor: Colors.white,
         title: Column(children: <Widget>[
           CircleAvatar(
+            // ignore: sort_child_properties_last
             child: Text('Te', style: TextStyle(fontSize: 12)),
             backgroundColor: Colors.blue[100],
             maxRadius: 14,
@@ -20,6 +21,7 @@ class ChatPage extends StatelessWidget {
         centerTitle: true,
         elevation: 1,
       ),
+      // ignore: avoid_unnecessary_containers
       body: Container(
         child: Column(
           children: <Widget>[
