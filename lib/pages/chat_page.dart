@@ -16,6 +16,8 @@ class _ChatPageState extends State<ChatPage> {
   final _textController = TextEditingController();
   final _focusNode = FocusNode();
 
+  bool _estaEscribiendo = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,7 +68,14 @@ class _ChatPageState extends State<ChatPage> {
               controller: _textController,
               onSubmitted: _handelSumit,
               onChanged: (String texto) {
-                //TODO: Cuando hay un valor para poder postear
+                setState(() {
+                  if(texto.trim().isNotEmpty){ 
+                    _estaEscribiendo = true;
+                  } else {
+                    _estaEscribiendo = false;
+                  }
+                }
+                );
               },
               decoration: InputDecoration.collapsed(hintText: 'Enviar mensaje'),
               focusNode: _focusNode,
@@ -83,14 +92,23 @@ class _ChatPageState extends State<ChatPage> {
                             style: TextStyle(color: Colors.blue[400])),
                         onPressed: () {},
                       )
-                    : IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.send,
-                          size: 30,
-                          color: Colors.blue[400],
-                        ),
-                        color: Colors.blue[400]),
+                    : Container(
+                      margin: EdgeInsets.symmetric(horizontal: 4),
+                      child: IconTheme(
+                        data: IconThemeData(color: Colors.blue[400]),
+                        child: IconButton(
+                            highlightColor: Colors.transparent,
+                            splashColor: Colors.transparent,
+                            onPressed: _estaEscribiendo
+                                ? () => _handelSumit(_textController.text.trim())
+                                : null,
+                            icon: Icon(
+                              Icons.send,
+                              size: 30,
+                            ),
+                            color: Colors.blue[400]),
+                      ),
+                    ),
           )
         ],
       ),
