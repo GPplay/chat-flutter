@@ -41,9 +41,9 @@ class ChatMessenge extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(8.0),
         margin: EdgeInsets.only(
-          right: 10.0,
+          right: 50.0,
           bottom: 5.0,
-          left: 50.0
+          left: 10.0
         ),
         decoration: BoxDecoration(
           color: Colors.grey[300],
