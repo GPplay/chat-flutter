@@ -43,10 +43,10 @@ class ChatMessenge extends StatelessWidget {
         margin: EdgeInsets.only(
           right: 50.0,
           bottom: 5.0,
-          left: 10.0
+          left: 5.0
         ),
         decoration: BoxDecoration(
-          color: Colors.grey[300],
+          color: Color(0xffE4E5E8),
           borderRadius: BorderRadius.circular(20),
           ),
         child: Text(texto, style: TextStyle(color: Colors.black87)),
