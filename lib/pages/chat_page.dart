@@ -88,10 +88,13 @@ class _ChatPageState extends State<ChatPage> {
                 ? IconButton(onPressed: () {}, icon: Icon(Icons.send))
                 : Platform.isIOS
                     ? CupertinoButton(
+                        onPressed: _estaEscribiendo
+                                ? () => _handelSumit(_textController.text.trim())
+                                : null,
                         child: Text("Enviar",
                             style: TextStyle(color: Colors.blue[400])),
-                        onPressed: () {},
                       )
+
                     : Container(
                       margin: EdgeInsets.symmetric(horizontal: 4),
                       child: IconTheme(
@@ -119,5 +122,9 @@ class _ChatPageState extends State<ChatPage> {
     debugPrint(text);
     _textController.clear();
     _focusNode.requestFocus();
+
+    setState(() {
+      _estaEscribiendo = false;
+    });
   }
 }
