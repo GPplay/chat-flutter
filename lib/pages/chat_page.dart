@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:chat_flutter/widget/chat_messenge.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,20 @@ class ChatPage extends StatefulWidget {
 class _ChatPageState extends State<ChatPage> {
   final _textController = TextEditingController();
   final _focusNode = FocusNode();
+
+  final List<ChatMessenge> _mensajes = [
+    ChatMessenge(texto: "hola mundo", uid: "123"), 
+    ChatMessenge(texto: "hola mundo como estan esto estan facil que ni yo me lo creo esto es breve pero aja", uid: "123"),
+    ChatMessenge(texto: "hola mundo como estan esto estan facil que ni yo me lo creo esto es breve pero aja", uid: "123"),
+    ChatMessenge(texto: "hola mundo como estan esto estan facil que ni yo me lo creo esto es breve pero aja", uid: "123"),
+    ChatMessenge(texto: "hola mundo como estan esto estan facil que ni yo me lo creo esto es breve pero aja", uid: "123465"),
+    ChatMessenge(texto: "hola mundo como estan esto estan facil que ni yo me lo creo esto es breve pero aja", uid: "1253465"),
+    ChatMessenge(texto: "hola mundo como estan esto estan facil que ni yo me lo creo esto es breve pero aja", uid: "123465"),
+    ChatMessenge(texto: "hola mundo como estan esto estan facil que ni yo me lo creo esto es breve pero aja", uid: "123465"),
+    ChatMessenge(texto: "hola mundo como estan esto estan facil que ni yo me lo creo esto es breve pero aja", uid: "123465"),
+    ChatMessenge(texto: "hola mundo como estan esto estan facil que ni yo me lo creo esto es breve pero aja", uid: "123465"),
+    ChatMessenge(texto: "hola mundo como estan esto estan facil que ni yo me lo creo esto es breve pero aja", uid: "123465"),
+    ];
 
   bool _estaEscribiendo = false;
 
@@ -43,7 +58,8 @@ class _ChatPageState extends State<ChatPage> {
             Flexible(
                 child: ListView.builder(
               physics: BouncingScrollPhysics(),
-              itemBuilder: (_, i) => Text('$i'),
+              itemCount: _mensajes.length,
+              itemBuilder: (_, i) => _mensajes[i],
               reverse: true,
             )),
             Divider(height: 1),
