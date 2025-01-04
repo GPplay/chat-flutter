@@ -13,23 +13,11 @@ class ChatPage extends StatefulWidget {
   _ChatPageState createState() => _ChatPageState();
 }
 
-class _ChatPageState extends State<ChatPage> {
+class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
   final _textController = TextEditingController();
   final _focusNode = FocusNode();
 
-  final List<ChatMessenge> _mensajes = [
-    ChatMessenge(texto: "hola mundo", uid: "123"), 
-    ChatMessenge(texto: "hola mundo como estan esto estan facil que ni yo me lo creo esto es breve pero aja", uid: "123"),
-    ChatMessenge(texto: "hola mundo como estan esto estan facil que ni yo me lo creo esto es breve pero aja", uid: "123"),
-    ChatMessenge(texto: "hola mundo como estan esto estan facil que ni yo me lo creo esto es breve pero aja", uid: "123"),
-    ChatMessenge(texto: "hola mundo como estan esto estan facil que ni yo me lo creo esto es breve pero aja", uid: "123465"),
-    ChatMessenge(texto: "hola mundo como estan esto estan facil que ni yo me lo creo esto es breve pero aja", uid: "1253465"),
-    ChatMessenge(texto: "hola mundo como estan esto estan facil que ni yo me lo creo esto es breve pero aja", uid: "123465"),
-    ChatMessenge(texto: "hola mundo como estan esto estan facil que ni yo me lo creo esto es breve pero aja", uid: "123465"),
-    ChatMessenge(texto: "hola mundo como estan esto estan facil que ni yo me lo creo esto es breve pero aja", uid: "123465"),
-    ChatMessenge(texto: "hola mundo como estan esto estan facil que ni yo me lo creo esto es breve pero aja", uid: "123465"),
-    ChatMessenge(texto: "hola mundo como estan esto estan facil que ni yo me lo creo esto es breve pero aja", uid: "123465"),
-    ];
+  final List<ChatMessenge> _mensajes = [];
 
   bool _estaEscribiendo = false;
 
@@ -140,10 +128,13 @@ class _ChatPageState extends State<ChatPage> {
     _focusNode.requestFocus();
 
     final newMessage = ChatMessenge(
+      animationController: AnimationController(
+          vsync: this, duration: Duration(milliseconds: 400)),
       texto: text,
       uid: '123',
     );
     _mensajes.insert(0, newMessage);
+    newMessage.animationController.forward();
     setState(() {
       _estaEscribiendo = false;
     });
