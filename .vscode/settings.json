@@ -19,5 +19,6 @@
     "titleBar.inactiveForeground": "#e7e7e799"
   },
   "peacock.color": "#007fff",
-  "cmake.sourceDirectory": "D:/archivos de programa/proyectos C#/chat flutter/02-chat_flutter"
+  "cmake.sourceDirectory": "D:/archivos de programa/proyectos C#/chat flutter/02-chat_flutter",
+  "java.configuration.updateBuildConfiguration": "interactive"
 }
