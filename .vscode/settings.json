@@ -20,5 +20,5 @@
   },
   "peacock.color": "#007fff",
   "cmake.sourceDirectory": "D:/archivos de programa/proyectos C#/chat flutter/02-chat_flutter",
-  "java.configuration.updateBuildConfiguration": "interactive"
+  "java.configuration.updateBuildConfiguration": "automatic"
 }
